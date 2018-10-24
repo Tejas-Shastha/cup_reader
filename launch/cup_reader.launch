@@ -1,15 +1,5 @@
 <?xml version="1.0"?>
 <launch>
-
-  <!-- Start the IMUs -->
-  <include file="$(find myahrs_driver)/launch/myahrs_driver.launch" />
-
-  <!-- Start the force sensors -->
-  <node pkg="rosserial_python" type="serial_node.py" name="force_rosserial" output="screen">
-    <param name="port" value="/dev/ttyUSB0" />
-    <param name="baud" value="230400" />
-  </node>
-
   <!-- Start the reader node -->
   <node pkg="cup_reader" type="cup_reader_node" name="cup_reader" output="screen">
     <param name="homepath" value="$(env HOME)" />
